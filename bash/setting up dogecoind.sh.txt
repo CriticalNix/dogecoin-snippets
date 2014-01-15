@@ -1,0 +1,56 @@
+
+`sudo mkdir ~/.bin`
+
+`cd ~`
+
+`sudo nano .bashrc`
+
+add this line to the top of the file
+`PATH="$PATH:$HOME/.bin"`
+
+then
+`cd ~/.bin`
+
+`sudo nano dogecoin.sh`
+
+paste this script in replacing the location of dogecoind with yours
+`#!/bin/bash
+
+c1="$1"
+c2="$2"
+c3="$3"
+c4="$4"
+c5="$5"
+
+cd /home/nixsy/Documents/dogecoin/src/
+
+if [[ $1 && $2 && $3 && $4 && $5 ]]; then
+./dogecoind "$c1" "$c2" "$c3" "$c4" "$c5"
+
+elif [[ $1 && $2 && $3 && $4 ]]; then
+./dogecoind "$c1" "$c2" "$c3" "$c4"
+
+elif [[ $1 && $2 && $3 ]]; then
+./dogecoind "$c1" "$c2" "$c3"
+
+elif [[ $1 && $2 ]]; then
+./dogecoind "$c1" "$c2"
+
+elif [ $1 ]; then
+./dogecoind "$c1"
+
+else
+./dogecoind
+fi`
+
+press ctrl+x and save
+
+then make it executable 
+
+`chmod +x dogecoind.sh`
+
+log out and log back in.
+
+from another directory try
+
+`dogecoind.sh getinfo`
